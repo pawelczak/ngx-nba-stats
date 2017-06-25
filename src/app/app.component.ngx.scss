@@ -18,3 +18,13 @@ body {
         margin: 20px 0;
     }
 }
+
+.page-content {
+    margin: 5px 0 10px;
+}
+
+html, body, material-app, md-sidenav-container, .page-content {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}

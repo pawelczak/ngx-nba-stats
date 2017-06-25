@@ -1,9 +1,21 @@
-<div class="content container">
-    <router-outlet></router-outlet>
-</div>
+<md-sidenav-container>
+    <md-sidenav #sidenav mode="side" opened="false">
+        <md-list>
+            <md-list-item>
+                <a md-button [routerLink]="['teams']" >Teams</a>
+            </md-list-item>
+            <md-list-item>
+                <a md-button >Players</a>
+            </md-list-item>
+        </md-list>
+    </md-sidenav>
 
-<footer class="footer">
-    <div class="container">
-        <p>nba stats</p>
+    <div class="page-content">
+        <a md-button (click)="sidenav.toggle()" >Menu</a>
+
+
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
     </div>
-</footer>
+</md-sidenav-container>
