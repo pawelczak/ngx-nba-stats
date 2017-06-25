@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 import { TeamsService } from './teams.service';
 
 @Component({
@@ -9,15 +9,19 @@ export class TeamsComponent {
 
     teams: any = [];
 
-    constructor(private teamsService: TeamsService) {}
+    constructor(private teamsService: TeamsService) {
+    }
 
     ngOnInit() {
         this.teamsService
             .getTeams()
-            .map(m => m.resource.resultSets[0].rowSet)
-            .subscribe((result) => {
-                this.teams = result;
-            })
+        // .map(m => m.resource.resultSets[0].rowSet)
+        // .subscribe((result) => {
+        //
+        //     console.log(result)
+        //
+        //     // this.teams = result;
+        // })
     }
 
 }

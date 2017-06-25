@@ -107,11 +107,9 @@ module.exports = {
             template: 'src/index.html',
             chunksSortMode: 'dependency'
         }),
-        // new webpack.ProvidePlugin({
-        //     jQuery: 'jquery',
-        //     $: 'jquery',
-        //     jquery: 'jquery'
-        // }),
+        new webpack.ProvidePlugin({
+            'request': 'superagent'
+        }),
         new CopyWebpackPlugin([{
             from: path.join(__dirname, '../src/assets'),
             to: path.join(__dirname, '../dist/assets')

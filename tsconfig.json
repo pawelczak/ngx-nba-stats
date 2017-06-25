@@ -11,7 +11,8 @@
         "suppressImplicitAnyIndexErrors": true,
         "skipLibCheck": true,
         "typeRoots": [
-            "node_modules/@types"
+            "node_modules/@types",
+            "src/custom-typings.d.ts"
         ],
         "lib": [
             "dom",
