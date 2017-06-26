@@ -11,6 +11,8 @@ import { routing } from './app.routing';
 import { TeamsComponent } from './teams/teams.component';
 import { TeamsService } from './teams/teams.service';
 import { HttpService } from '../utils/http/http.service';
+import { StandingsComponent } from './standings/standings.component';
+import { PlayersIndexComponent } from './players/players-index/players-index.component';
 
 
 
@@ -29,7 +31,9 @@ import { HttpService } from '../utils/http/http.service';
     ],
     declarations: [
         AppComponent,
-        TeamsComponent
+        TeamsComponent,
+        StandingsComponent,
+        PlayersIndexComponent
     ],
     providers: [
         HttpService,
