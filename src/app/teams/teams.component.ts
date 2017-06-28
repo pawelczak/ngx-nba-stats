@@ -15,13 +15,9 @@ export class TeamsComponent {
     ngOnInit() {
         this.teamsService
             .getTeams()
-        // .map(m => m.resource.resultSets[0].rowSet)
-        // .subscribe((result) => {
-        //
-        //     console.log(result)
-        //
-        //     // this.teams = result;
-        // })
+            .then((teams: Array<string>) => {
+                this.teams = teams;
+            })
     }
 
 }

@@ -1,5 +1,6 @@
 const webpack = require('webpack'),
     path = require('path'),
+    helpers = require('./helpers.js'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     CopyWebpackPlugin = require('copy-webpack-plugin'),
     precss = require('precss'),
@@ -107,6 +108,11 @@ module.exports = {
             template: 'src/index.html',
             chunksSortMode: 'dependency'
         }),
+        new webpack.ContextReplacementPlugin(
+            /angular(\\|\/)core(\\|\/)@angular/,
+            helpers.root('./src'),
+            {}
+        ),
         new webpack.ProvidePlugin({
             'request': 'superagent'
         }),
