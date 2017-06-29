@@ -6,13 +6,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule, MdListModule, MdSidenavModule } from '@angular/material';
 
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
-import { TeamsComponent } from './teams/teams.component';
-import { TeamsService } from './teams/teams.service';
+
 import { HttpService } from '../utils/http/http.service';
 import { StandingsComponent } from './standings/standings.component';
 import { PlayersIndexComponent } from './players/players-index/players-index.component';
+
+import { TeamsModule } from './teams/teams.module';
+import { reducer } from './app.reducers';
 
 
 
@@ -25,19 +30,24 @@ import { PlayersIndexComponent } from './players/players-index/players-index.com
         ReactiveFormsModule,
         BrowserAnimationsModule,
 
+        StoreModule.provideStore(reducer),
+        StoreDevtoolsModule.instrumentOnlyWithExtension({
+            maxAge: 10
+        }),
+
         MdListModule,
         MdButtonModule,
-        MdSidenavModule
+        MdSidenavModule,
+
+        TeamsModule
     ],
     declarations: [
         AppComponent,
-        TeamsComponent,
         StandingsComponent,
         PlayersIndexComponent
     ],
     providers: [
-        HttpService,
-        TeamsService
+        HttpService
     ],
     entryComponents: [
         AppComponent

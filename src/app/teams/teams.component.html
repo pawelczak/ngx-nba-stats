@@ -1,7 +1,15 @@
 <h2>Teams</h2>
 
-<md-list>
-    <md-list-item *ngFor="let team of teams" >
-        {{team}}
-    </md-list-item>
-</md-list>
+<md-progress-spinner
+    *ngIf="fetching; else teamslist"
+    class="example-margin"
+    [mode]="'indeterminate'">
+</md-progress-spinner>
+
+<ng-template #teamslist>
+    <md-list>
+        <md-list-item *ngFor="let team of teams" >
+            {{team}}
+        </md-list-item>
+    </md-list>
+</ng-template>

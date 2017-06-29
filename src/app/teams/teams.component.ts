@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { TeamsService } from './teams.service';
+
+import { TeamsRepository } from './store/teams.repository';
+import { TeamsState } from './store/teams.state';
 
 @Component({
     selector: 'ns-teams',
@@ -7,17 +9,22 @@ import { TeamsService } from './teams.service';
 })
 export class TeamsComponent {
 
-    teams: any = [];
+    fetching: boolean = false;
 
-    constructor(private teamsService: TeamsService) {
+    teams: Array<string> = [];
+
+    constructor(private teamsRepository: TeamsRepository) {
     }
 
     ngOnInit() {
-        this.teamsService
-            .getTeams()
-            .then((teams: Array<string>) => {
-                this.teams = teams;
-            })
+        this.teamsRepository
+            .getTeamsState()
+            .subscribe((state: TeamsState) => {
+                this.teams = state.teams;
+                this.fetching = state.fetching;
+            });
+
+        this.teamsRepository.fetchTeams();
     }
 
 }
