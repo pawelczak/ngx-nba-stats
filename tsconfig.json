@@ -24,7 +24,8 @@
             "es6-shim",
             "jasmine",
             "node",
-            "selenium-webdriver"
+            "selenium-webdriver",
+            "superagent"
         ]
     },
     "exclude": [

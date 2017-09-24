@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { TeamsRepository } from './teams/store/teams.repository';
 
 
 @Component({
@@ -9,4 +10,11 @@ import { Component, ViewEncapsulation } from '@angular/core';
     ],
     encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {}
+export class AppComponent {
+
+
+    constructor(TeamsRepository: TeamsRepository) {
+        TeamsRepository.getTeams().subscribe((s) => {console.log(s)})
+
+    }
+}

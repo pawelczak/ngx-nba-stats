@@ -20,11 +20,11 @@ export class TeamsComponent {
         this.teamsRepository
             .getTeamsState()
             .subscribe((state: TeamsState) => {
-                this.teams = state.teams;
+                this.teams = state.teams
                 this.fetching = state.fetching;
-            });
+            })
 
-        this.teamsRepository.fetchTeams();
+        this.teamsRepository.fetchTeams()
     }
 
 }
