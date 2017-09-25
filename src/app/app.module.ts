@@ -18,6 +18,9 @@ import { PlayersIndexComponent } from './players/players-index/players-index.com
 
 import { TeamsModule } from './teams/teams.module';
 import { reducer } from './app.reducers';
+import { LeadersComponent } from './players/leaders/leaders.component';
+import { DirectGraphComponent } from './players/direct-graph/direct-graph.component';
+import { TimelineComponent } from './players/timeline/timeline.component';
 
 
 
@@ -44,7 +47,10 @@ import { reducer } from './app.reducers';
     declarations: [
         AppComponent,
         StandingsComponent,
-        PlayersIndexComponent
+        PlayersIndexComponent,
+        LeadersComponent,
+        DirectGraphComponent,
+        TimelineComponent
     ],
     providers: [
         HttpService
